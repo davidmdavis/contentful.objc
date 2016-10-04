@@ -136,6 +136,11 @@ BOOL CDAIgnoreProperty(objc_property_t property) {
         return YES;
     }
     
+    static const char* pxReuseIdentifier = "_px_reuseIdentifier";
+    if (strncmp(property_getName(property), pxReuseIdentifier, strlen(observationInfo)) == 0) {
+        return YES;
+    }
+    
     return NO;
 }
 
